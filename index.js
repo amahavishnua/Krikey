@@ -1,4 +1,10 @@
-const express = require("express");
+
+//docker build -t krickey-web . ?Not needed
+//docker run -it -p 9000:8080 krickey-web
+//http://localhost:9000/Maha    ---> Will give Maha's sales
+//http://localhost:9000/        ---> Will retturn all authors with Id
+
+
 app =express();
 const pool= require("./pg_db");
 const notFound = require('./notFound')
@@ -41,3 +47,6 @@ app.get('/:name', async(req, res)=>{
 app.listen(8080,()=>{
     console.log("server in running!!");
 });
+//docker run -it -p 9000:8080 krickey-web
+//http://localhost:9000/Maha    ---> Will give Maha's sales
+//http://localhost:9000/        ---> Will retturn all authors with Id
