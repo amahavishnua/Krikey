@@ -8,7 +8,7 @@
 app =express();
 const pool= require("./pg_db");
 const notFound = require('./notFound')
-  
+const port = process.env.PORT || 8080;
 app.use(express.json());
 
 app.get('/', async(req, res)=>{
@@ -43,9 +43,8 @@ app.get('/:name', async(req, res)=>{
         console.error(err.message,err.statusCode);
     }
 });
-
-app.listen(8080,()=>{
-    console.log("server in running!!");
+app.listen(port,()=>{
+    console.log("server in running!!",port);
 });
 //docker run -it -p 9000:8080 krickey-web
 //http://localhost:9000/Maha    ---> Will give Maha's sales
